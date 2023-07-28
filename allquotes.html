@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Quotes</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>     
+            <div class="leftbar"><strong>Great Quotes</strong></div>     
+            <div class="rightbar">
+                <ul>    
+                    <li id="first"><a href="/allquotes.html">All Quotes</a></li>
+                    <li id="second"><a href="/newquotes.html">New Quotes</a></li>
+                </ul>
+            </div>  
+        </nav>
+    </header>
+    <h1>AllQuotes</h1>
+    <div class="quotes">
+        <ul>
+            <li>
+                <h5>MY NAME IS RUCHI GUPTA</h5>
+                <h6 class="sub">~ruchi gupta</h6>
+                <button class="b">View Quote</button>
+            </li>
+            <li>
+                <h5>MY NAME IS ROBIN GUPTA</h5>
+                <h6 class="sub">~robin gupta</h6>
+                <button class="b">View Quote</button>
+            </li>
+            <li>
+                <h5>MY NAME IS ROHIT GUPTA</h5>
+                <h6 class="sub">~rohit gupta</h6>
+                <button class="b">View Quote</button>
+            </li>
+            <li>
+                <h5>MY NAME IS NITN GUPTA</h5>
+                <h6 class="sub">~nitn gupta</h6>
+                <button class="b">View Quote</button>
+            </li>
+            <li>
+                <h5>MY NAME IS RAJAT GUPTA</h5>
+                <h6 class="sub">~rajat gupta</h6>
+                <button class="b">View Quote</button>
+            </li>
+            <li>
+                <h5>MY NAME IS SONALI GUPTA</h5>
+                <h6 class="sub">~sonali gupta</h6>
+                <button class="b">View Quote</button>
+            </li>
+            <li>
+                <h5>MY NAME IS SHUBHAM GUPTA</h5>
+                <h6 class="sub">~shubham gupta</h6>
+                <button class="b">View Quote</button>
+            </li>
+            <li>
+                <h5>MY NAME IS KHUSHI GUPTA</h5>
+                <h6 class="sub">~khushi gupta</h6>
+                <button class="b">View Quote</button>
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.getElementById('first').addEventListener('click', function() {
+            const savedQuotes = JSON.parse(localStorage.getItem('quotes')) || [];
+            localStorage.setItem('quotesToShow', JSON.stringify(savedQuotes));
+            window.location.href = 'allquotes.html';
+        });
+
+    </script>
+</body>
+</html>

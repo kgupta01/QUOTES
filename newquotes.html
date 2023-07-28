@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Quote</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>     
+            <div class="leftbar"><strong>Great Quotes</strong></div>     
+            <div class="rightbar">
+                <ul>    
+                    <li><a href="/allquotes.html">All Quotes</a></li>
+                    <li><a href="/newquotes.html">New Quotes</a></li>
+                </ul>
+            </div>  
+        </nav>
+    </header>
+    <div class="container">
+        <div class="newquote">
+            <form class="row">
+                <label for="name">Author:</label>
+                <input type="text" id="name" name="name" placeholder="Author's name" required/>
+                <label for="quote" class="quote">Quote:</label>
+                <textarea id="quote" name="quote" rows="4" placeholder="Author's Quote"></textarea> 
+                <button type="submit" id="cl">Add Quote</button>        
+            </form>
+        </div>
+        <div class="disp"></div>
+        <script>
+            const savedData = JSON.parse(localStorage.getItem('savedData')) || [];
+            const disp = document.getElementById('disp');
+    
+            savedData.forEach((quote) => {
+                const quoteDiv = document.createElement('div');
+                quoteDiv.classList.add('quoteCard');
+                quoteDiv.innerHTML = `<h2>${quote.quote}</h2><h4>~${quote.name}</h4>`;
+                quoteDisplay.appendChild(quoteDiv);
+            });
+    
+            document.getElementById('cl').addEventListener('click', function() {
+                const name = document.getElementById('name').value;
+                const quote = document.getElementById('quote').value;
+                if (name && quote) {
+                    const quoteDiv = document.createElement('div');
+                    quoteDiv.classList.add('quoteCard');
+                    quoteDiv.innerHTML = `<h2>${quote}</h2><h4>~${name}</h4>`;
+                    quoteDisplay.appendChild(quoteDiv);
+                    savedData.push({ name, quote });
+                    localStorage.setItem('savedData', JSON.stringify(savedData));
+    
+                    document.getElementById('row').reset();
+                }
+            });
+        </script>    
+    </div>
+</body>
+</html>
